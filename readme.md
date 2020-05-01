@@ -13,6 +13,7 @@
 - [Description](#description)
 - [createTranslator](#createtranslator)
 - [ObservableTranslator](#observabletranslator)
+- [Usage in React](#usage-in-react)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -97,3 +98,7 @@ const scopedTranslate = translator.scope("nested")
 // same as translator.get("nested.text")
 scopedTranslate("text")
 ```
+
+## Usage in React
+
+This package provides a seemles integration with React hooks: [@bytesoftio/use-translator](https://github.com/bytesoftio/use-translator)

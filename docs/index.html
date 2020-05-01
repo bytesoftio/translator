@@ -2413,6 +2413,7 @@ img {
 				<li><a href="#description">Description</a></li>
 				<li><a href="#createtranslator">createTranslator</a></li>
 				<li><a href="#observabletranslator">ObservableTranslator</a></li>
+				<li><a href="#usage-in-react">Usage in React</a></li>
 			</ul>
 			<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 			<a href="#description" id="description" style="color: inherit; text-decoration: none;">
@@ -2491,6 +2492,10 @@ translator.listen(<span class="hljs-function"><span class="hljs-params">translat
 
 <span class="hljs-comment">// same as translator.get("nested.text")</span>
 scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
+			<a href="#usage-in-react" id="usage-in-react" style="color: inherit; text-decoration: none;">
+				<h2>Usage in React</h2>
+			</a>
+			<p>This package provides a seemles integration with React hooks: <a href="https://github.com/bytesoftio/use-translator">@bytesoftio/use-translator</a></p>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
@@ -2537,7 +2542,7 @@ scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Create<wbr>Translator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>translations<span class="tsd-signature-symbol">: </span><a href="globals.html#translations" class="tsd-signature-type">Translations</a>, language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fallbackLanguage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/observabletranslator.html" class="tsd-signature-type">ObservableTranslator</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/types.ts#L27">types.ts:27</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/2057909/src/types.ts#L27">types.ts:27</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2574,7 +2579,7 @@ scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Translate<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, replacements<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, language<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/types.ts#L25">types.ts:25</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/2057909/src/types.ts#L25">types.ts:25</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2611,7 +2616,7 @@ scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Translations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/types.ts#L24">types.ts:24</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/2057909/src/types.ts#L24">types.ts:24</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2629,7 +2634,7 @@ scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Translator<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>translator<span class="tsd-signature-symbol">: </span><a href="interfaces/observabletranslator.html" class="tsd-signature-type">ObservableTranslator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/types.ts#L26">types.ts:26</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/2057909/src/types.ts#L26">types.ts:26</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2667,7 +2672,7 @@ scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/createTranslator.ts#L4">createTranslator.ts:4</a></li>
+								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/2057909/src/createTranslator.ts#L4">createTranslator.ts:4</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2701,7 +2706,7 @@ scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/templatize.ts#L3">templatize.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/2057909/src/templatize.ts#L3">templatize.ts:3</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2727,7 +2732,7 @@ scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/translate.ts#L5">translate.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/2057909/src/translate.ts#L5">translate.ts:5</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
