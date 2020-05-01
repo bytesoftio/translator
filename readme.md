@@ -59,6 +59,15 @@ translator.getLanguages()
 // get all translations
 translator.getTranslations()
 
+// get translations for a specific language
+translator.getTranslationsForLanguage("en")
+
+// replace all translations
+translator.setTranslations({ en: { /* ... */ }})
+
+// replace translations for a specific language
+translator.setTranslationsForLanguage("en", { /* ... */ })
+
 // add translations for multiple languages at once
 translator.addTranslations({ en: { title: "Bar" } })
 
