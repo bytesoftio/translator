@@ -20,7 +20,7 @@ export interface ObservableTranslator {
   get(key: string, replacements?: any[], language?: string): string
   has(key: string, language?: string): boolean
 
-  listen(callback: TranslatorCallback)
+  listen(callback: TranslatorCallback, notifyImmediately?: boolean)
   scope(scope: string): TranslateFunction
 }
 

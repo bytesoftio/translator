@@ -73,10 +73,10 @@ export class Translator implements ObservableTranslator {
     return translation !== `{ ${language}.${key} }`
   }
 
-  listen(callback: TranslatorCallback) {
-    this.translations.listen(() => callback(this))
-    this.language.listen(() => callback(this))
-    this.fallbackLanguage.listen(() => callback(this))
+  listen(callback: TranslatorCallback, notifyImmediately?: boolean) {
+    this.translations.listen(() => callback(this), notifyImmediately)
+    this.language.listen(() => callback(this), notifyImmediately)
+    this.fallbackLanguage.listen(() => callback(this), notifyImmediately)
   }
 
   scope(scope: string): TranslateFunction {
