@@ -98,7 +98,7 @@ describe("Translator", () => {
   })
 
   it("listens", () => {
-    const translator = new Translator({ en: { foo: "bar" } }, "en")
+    const translator = new Translator({ en: { foo: "bar", yolo: {swag: "baz"} } }, "en")
     const callback = jest.fn()
 
     translator.listen(callback)
@@ -108,5 +108,14 @@ describe("Translator", () => {
 
     translator.setLanguage("de")
     expect(callback).toHaveBeenCalledTimes(3)
+
+    translator.setTranslations({en: { foo: "bar", yolo: {swag: "bar"} }})
+    expect(callback).toHaveBeenCalledTimes(4)
+
+    translator.addTranslations({en: { key: "value"}})
+    expect(callback).toHaveBeenCalledTimes(5)
+
+    translator.addTranslations({en: { foo: "bar"}})
+    expect(callback).toHaveBeenCalledTimes(5)
   })
 })
