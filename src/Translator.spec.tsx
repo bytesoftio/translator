@@ -68,6 +68,7 @@ describe("Translator", () => {
     const translator = new Translator({ en: { boo: "bar" } }, "en")
 
     expect(translator.getTranslations()).toEqual({ en: { boo: "bar" } })
+    expect(translator.getTranslationsForLanguage("en")).toEqual({boo: "bar"})
 
     translator.addTranslations({ en: { foo: "bar" } })
 
@@ -80,6 +81,14 @@ describe("Translator", () => {
     translator.addTranslationsForLanguage("de", { foo: "baz" })
 
     expect(translator.getTranslations()).toEqual({ en: { boo: "bar", foo: "bar" }, de: { yolo: "swag", foo: "baz" } })
+
+    translator.setTranslations({en: {foo: "bar"}, de: {yolo: "swag"}})
+
+    expect(translator.getTranslations()).toEqual({en: {foo: "bar"}, de: {yolo: "swag"}})
+
+    translator.setTranslationsForLanguage("de", {ding: "dong"})
+
+    expect(translator.getTranslations()).toEqual({en: {foo: "bar"}, de: {ding: "dong"}})
   })
 
   it("gets languages", () => {

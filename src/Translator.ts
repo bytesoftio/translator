@@ -35,6 +35,18 @@ export class Translator implements ObservableTranslator {
     return this.translations.get()
   }
 
+  getTranslationsForLanguage(language: string): object {
+    return this.getTranslations()[language] || {}
+  }
+
+  setTranslations(translations: Translations): void {
+    this.translations.set(translations)
+  }
+
+  setTranslationsForLanguage(language: string, translations: object): void {
+    this.setTranslations({...this.getTranslations(), [language]: translations})
+  }
+
   addTranslations(translations: Translations): void {
     this.translations.set(merge(this.translations.get(), translations))
   }

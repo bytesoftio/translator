@@ -11,6 +11,9 @@ export interface ObservableTranslator {
   getFallbackLanguage(): string|undefined
   setFallbackLanguage(language: string): void
   getTranslations(): Translations
+  getTranslationsForLanguage(language: string): object
+  setTranslations(translations: Translations): void
+  setTranslationsForLanguage(language: string, translations: object): void
   addTranslations(translations: Translations): void
   addTranslationsForLanguage(language: string, translations: object): void
 
