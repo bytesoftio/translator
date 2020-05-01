@@ -1,19 +1,17 @@
-import { createValue, HookValue, useValue } from "@bytesoftio/use-value"
 import {
-  HookTranslator,
-  LanguageSpread,
+  ObservableTranslator,
   TranslateFunction,
   Translations,
   TranslatorCallback,
-  TranslatorSpread,
 } from "./types"
 import { translate } from "./translate"
 import { compact, startsWith, keys, merge } from "lodash"
+import { createValue, ObservableValue } from "@bytesoftio/value"
 
-export class Translator implements HookTranslator {
-  language: HookValue<string>
-  fallbackLanguage: HookValue<string|undefined>
-  translations: HookValue<Translations>
+export class Translator implements ObservableTranslator {
+  language: ObservableValue<string>
+  fallbackLanguage: ObservableValue<string|undefined>
+  translations: ObservableValue<Translations>
 
   constructor(translations: Translations, language: string, fallbackLanguage?: string) {
     this.language = createValue(language)
@@ -69,35 +67,13 @@ export class Translator implements HookTranslator {
     this.fallbackLanguage.listen(() => callback(this))
   }
 
-  use(scope?: string): TranslateFunction {
-    const [translate] = this.unpack(scope)
-
-    useValue(this.translations)
-    useValue(this.language)
-    useValue(this.fallbackLanguage)
-
-    return translate
-  }
-
-  useLanguage(): LanguageSpread {
-    useValue(this.language)
-
-    const [translate, language, setLanguage] = this.unpack()
-
-    return [language, setLanguage]
-  }
-
-  protected unpack(scope?: string): TranslatorSpread {
+  scope(scope: string): TranslateFunction {
     const translate: TranslateFunction = (key: string, replacements?: any[], language?: string) => {
       const path = startsWith(key, "~") ? key.replace("~", "") : compact([scope, key]).join(".")
 
       return this.get(path, replacements, language)
     }
 
-    return [
-      translate,
-      this.getLanguage(),
-      (language: string) => this.setLanguage(language),
-    ]
+    return translate
   }
 }

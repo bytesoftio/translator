@@ -1,8 +1,8 @@
-# @bytesoftio/use-translator
+# @bytesoftio/translator
 
 ## Installation
 
-`yarn add @bytesoftio/use-translator` or `npm install @bytesoftio/use-translator`
+`yarn add @bytesoftio/translator` or `npm install @bytesoftio/translator`
 
 ## Table of contents
 
@@ -11,26 +11,21 @@
 
 
 - [Description](#description)
-- [Usage](#usage)
-  - [createTranslator](#createtranslator)
-  - [HookTranslator](#hooktranslator)
-  - [useTranslator](#usetranslator)
-  - [useLanguage](#uselanguage)
+- [createTranslator](#createtranslator)
+- [ObservableTranslator](#observabletranslator)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Description
 
-A very simple library to handle translations inside React applications.
+A very simple library to handle translations.
 
-## Usage
+## createTranslator
 
-### createTranslator
-
-Creates a new instance of HookTranslator that can be reused across the application.
+Creates a new instance of `ObservableTranslator`.
 
 ```ts
-import { createTranslator } from "@bytesoftio/use-translator"
+import { createTranslator } from "@bytesoftio/translator"
 
 const translations = {
   en: { title: "Foo", about: { company: "Acme" } },
@@ -42,12 +37,12 @@ const fallbackLanguage = "en"
 const translator = createTranslator(translations, language, fallbackLanguage)
 ```
 
-### HookTranslator
+## ObservableTranslator
 
-The translator instance provides various methods to handle all your translation needs.
+A quick tour of the available methods:
 
 ```ts
-import { createTranslator } from "@bytesoftio/use-translator"
+import { createTranslator } from "@bytesoftio/translator"
 
 const translator = createTranslator({ en: { title: "Foo", about: "https://$1", nested: { text: "Bar" } }}, "en")
 
@@ -96,73 +91,9 @@ translator.has("foo", "de")
 // listen to language, translations or fallbackLanguage changes
 translator.listen(translator => console.log(translator.getLanguage()))
 
-// use translator like a hook, when used inside a react component,
-// the component will become aware of language and translations changes,
-// take a look at the "useTranslator" hook
-const translate = translator.use()
-
-// use translate function the same as "translator.translate()" method, returns "https://github.com"
-translate("about", ["github.com"], "en")
-
 // create a nested translate function, all translation keys be prefixed with the given scope "nested"
-const scopedTranslate = translator.use("nested")
+const scopedTranslate = translator.scope("nested")
 
 // same as translator.get("nested.text")
 scopedTranslate("text")
-
-// use translator like a hook, when called inside a React component,
-// the component will become aware of language changes, take a look at the "useLanguage" hook
-const [language, setLanguage] = translator.useLanguage()
-```
-
-### useTranslator
-
-Use translations inside your React components.
-
-```tsx
-import React from "react"
-import { createTranslator, useTranslator } from "@bytesoftio/use-translator"
-
-const translator = createTranslator({ en: { title: "Foo", nested: { title: "Bar" } } }, "en")
-
-const Component = () => {
-  // connect component to language and translation changes
-  const t = useTranslator(translator)
-  // create a scoped translate function, all translation keys will be prefixed with "nested"
-  const tt = useTranslator(translator, "nested")
-
-  return (
-    <div>
-      <h1>Title: {t("title")}</h1>
-      <h2>Nested title: {tt("title")}, same as: {t("nested.title")}</h2>
-    </div>
-  )
-}
-```
-
-### useLanguage
-
-Use and control current language inside your React components.
-
-```tsx
-import React from "react"
-import { createTranslator, useLanguage, useTranslator } from "@bytesoftio/use-translator"
-
-const translator = createTranslator({ en: { title: "Foo" }, de: { title: "Bar" } }, "en")
-
-const Component = () => {
-  // get current language and a way to change it
-  const [langauge, setLanguage] = useLanguage(translator)
-  // connect translator to component
-  const t = useTranslator(translator)
-
-  const changeLanguage = () => setLanguage("de")
-
-  return (
-    <div>
-      <h1>Title: {t("title")}</h1>
-      <button onClick={changeLanguage}>Change language</button>
-    </div>
-  )
-}
 ```

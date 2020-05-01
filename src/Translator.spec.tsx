@@ -1,7 +1,4 @@
 import { Translator } from "./index"
-import React from "react"
-import { mount } from "enzyme"
-import { act } from "react-dom/test-utils"
 
 describe("Translator", () => {
   it("accepts language and translations", () => {
@@ -102,66 +99,5 @@ describe("Translator", () => {
 
     translator.setLanguage("de")
     expect(callback).toHaveBeenCalledTimes(3)
-  })
-
-  it("uses", () => {
-    const translator = new Translator({ en: { foo: "bar" }, de: { foo: "baz" } }, "en")
-
-    const Test = () => {
-      const t = translator.use()
-
-      return (
-        <h1>{t("foo")}</h1>
-      )
-    }
-
-    const wrapper = mount(<Test/>)
-    const target = () => wrapper.find("h1")
-
-    expect(target().text()).toBe("bar")
-
-    act(() => translator.setLanguage("de"))
-
-    expect(target().text()).toBe("baz")
-  })
-
-  it("uses scoped", () => {
-    const translator = new Translator({ en: { foo: { bar: "baz" }, yolo: "swag" } }, "en")
-
-    const Test = () => {
-      const t = translator.use("foo")
-
-      return (
-        <div>
-          <h1>{t("bar")} {t("~yolo")}</h1>
-        </div>
-      )
-    }
-
-    const wrapper = mount(<Test/>)
-    const target = () => wrapper.find("h1")
-
-    expect(target().text()).toBe("baz swag")
-  })
-
-  it("uses language", () => {
-    const translator = new Translator({}, "en")
-
-    const Test = () => {
-      const [language, setLanguage] = translator.useLanguage()
-
-      return (
-        <h1 onClick={() => setLanguage("de")}>{language}</h1>
-      )
-    }
-
-    const wrapper = mount(<Test/>)
-    const target = () => wrapper.find("h1")
-
-    expect(target().text()).toBe("en")
-
-    target().simulate("click")
-
-    expect(target().text()).toBe("de")
   })
 })

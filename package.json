@@ -1,5 +1,5 @@
 {
-  "name": "@bytesoftio/use-translator",
+  "name": "@bytesoftio/translator",
   "version": "1.1.1",
   "author": "Maxim Kott",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "files": [
     "/dist"
   ],
-  "repository": "github:bytesoftio/use-translator",
+  "repository": "github:bytesoftio/translator",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -21,26 +21,15 @@
     "release": "yarn run build && np"
   },
   "dependencies": {
-    "@bytesoftio/use-value": "^1.2.0",
+    "@bytesoftio/value": "^2.0.0",
     "lodash": "^4.17.15"
   },
-  "peerDependencies": {
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
-  },
   "devDependencies": {
-    "@types/enzyme": "^3.10.5",
     "@types/jest": "^25.1.4",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.9.1",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
     "doctoc": "^1.4.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.1.0",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
     "ts-jest": "^25.2.1",
     "typedoc": "^0.17.0-3",
     "typescript": "^3.8.3"

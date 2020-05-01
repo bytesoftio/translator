@@ -1,9 +1,9 @@
-import { HookValue, ValueInitializer } from "@bytesoftio/use-value"
+import { ObservableValue } from "@bytesoftio/value"
 
-export interface HookTranslator {
-  language: HookValue<string>
-  fallbackLanguage: HookValue<string|undefined>
-  translations: HookValue<Translations>
+export interface ObservableTranslator {
+  language: ObservableValue<string>
+  fallbackLanguage: ObservableValue<string|undefined>
+  translations: ObservableValue<Translations>
 
   getLanguage(): string
   setLanguage(language: string): void
@@ -18,16 +18,10 @@ export interface HookTranslator {
   has(key: string, language?: string): boolean
 
   listen(callback: TranslatorCallback)
-  use(scope?: string): TranslateFunction
-  useLanguage(): LanguageSpread
+  scope(scope: string): TranslateFunction
 }
 
 export type Translations = { [K: string]: object }
 export type TranslateFunction = (key: string, replacements?: any[], language?: string) => string
-export type TranslatorSpread = [TranslateFunction, string, LanguageUpdater]
-export type LanguageUpdater = (language: string) => void
-export type LanguageSpread = [string, LanguageUpdater]
-export type TranslatorCallback = (translator: HookTranslator) => void
-export type CreateTranslator = (translations: Translations, language: string, fallbackLanguage?: string) => HookTranslator
-export type UseTranslator = (initializer: ValueInitializer<HookTranslator>, scope?: string) => TranslateFunction
-export type UseLanguage = (initializer: ValueInitializer<HookTranslator>) => LanguageSpread
+export type TranslatorCallback = (translator: ObservableTranslator) => void
+export type CreateTranslator = (translations: Translations, language: string, fallbackLanguage?: string) => ObservableTranslator

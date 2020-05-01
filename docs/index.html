@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@bytesoftio/use-translator | @bytesoftio/use-translator</title>
+	<title>@bytesoftio/translator | @bytesoftio/translator</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2335,7 +2335,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="index.html">@bytesoftio/use-translator</a></strong>
+					<strong><a href="index.html">@bytesoftio/translator</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2369,16 +2369,10 @@ img {
 			<a href="classes/translator.html" class="tsd-kind-icon">Translator</a>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="interfaces/hooktranslator.html" class="tsd-kind-icon">Hook<wbr>Translator</a>
+			<a href="interfaces/observabletranslator.html" class="tsd-kind-icon">Observable<wbr>Translator</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#createtranslator" class="tsd-kind-icon">Create<wbr>Translator</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#languagespread" class="tsd-kind-icon">Language<wbr>Spread</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#languageupdater" class="tsd-kind-icon">Language<wbr>Updater</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#translatefunction" class="tsd-kind-icon">Translate<wbr>Function</a>
@@ -2389,15 +2383,6 @@ img {
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#translatorcallback" class="tsd-kind-icon">Translator<wbr>Callback</a>
 		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#translatorspread" class="tsd-kind-icon">Translator<wbr>Spread</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#uselanguage" class="tsd-kind-icon">Use<wbr>Language</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#usetranslator" class="tsd-kind-icon">Use<wbr>Translator</a>
-		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#createtranslator" class="tsd-kind-icon">create<wbr>Translator</a>
 		</li>
@@ -2407,24 +2392,18 @@ img {
 		<li class=" tsd-kind-function">
 			<a href="globals.html#translate" class="tsd-kind-icon">translate</a>
 		</li>
-		<li class=" tsd-kind-function">
-			<a href="globals.html#uselanguage" class="tsd-kind-icon">use<wbr>Language</a>
-		</li>
-		<li class=" tsd-kind-function">
-			<a href="globals.html#usetranslator" class="tsd-kind-icon">use<wbr>Translator</a>
-		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
-			<a href="#bytesoftiouse-translator" id="bytesoftiouse-translator" style="color: inherit; text-decoration: none;">
-				<h1>@bytesoftio/use-translator</h1>
+			<a href="#bytesoftiotranslator" id="bytesoftiotranslator" style="color: inherit; text-decoration: none;">
+				<h1>@bytesoftio/translator</h1>
 			</a>
 			<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 				<h2>Installation</h2>
 			</a>
-			<p><code>yarn add @bytesoftio/use-translator</code> or <code>npm install @bytesoftio/use-translator</code></p>
+			<p><code>yarn add @bytesoftio/translator</code> or <code>npm install @bytesoftio/translator</code></p>
 			<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
 				<h2>Table of contents</h2>
 			</a>
@@ -2432,27 +2411,19 @@ img {
 			<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 			<ul>
 				<li><a href="#description">Description</a></li>
-				<li><a href="#usage">Usage</a><ul>
-						<li><a href="#createtranslator">createTranslator</a></li>
-						<li><a href="#hooktranslator">HookTranslator</a></li>
-						<li><a href="#usetranslator">useTranslator</a></li>
-						<li><a href="#uselanguage">useLanguage</a></li>
-					</ul>
-				</li>
+				<li><a href="#createtranslator">createTranslator</a></li>
+				<li><a href="#observabletranslator">ObservableTranslator</a></li>
 			</ul>
 			<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 			<a href="#description" id="description" style="color: inherit; text-decoration: none;">
 				<h2>Description</h2>
 			</a>
-			<p>A very simple library to handle translations inside React applications.</p>
-			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-				<h2>Usage</h2>
-			</a>
+			<p>A very simple library to handle translations.</p>
 			<a href="#createtranslator" id="createtranslator" style="color: inherit; text-decoration: none;">
-				<h3>createTranslator</h3>
+				<h2>createTranslator</h2>
 			</a>
-			<p>Creates a new instance of HookTranslator that can be reused across the application.</p>
-			<pre><code class="language-ts"><span class="hljs-keyword">import</span> { createTranslator } <span class="hljs-keyword">from</span> <span class="hljs-string">"@bytesoftio/use-translator"</span>
+			<p>Creates a new instance of <code>ObservableTranslator</code>.</p>
+			<pre><code class="language-ts"><span class="hljs-keyword">import</span> { createTranslator } <span class="hljs-keyword">from</span> <span class="hljs-string">"@bytesoftio/translator"</span>
 
 <span class="hljs-keyword">const</span> translations = {
   en: { title: <span class="hljs-string">"Foo"</span>, about: { company: <span class="hljs-string">"Acme"</span> } },
@@ -2462,11 +2433,11 @@ img {
 <span class="hljs-keyword">const</span> fallbackLanguage = <span class="hljs-string">"en"</span>
 
 <span class="hljs-keyword">const</span> translator = createTranslator(translations, language, fallbackLanguage)</code></pre>
-			<a href="#hooktranslator" id="hooktranslator" style="color: inherit; text-decoration: none;">
-				<h3>HookTranslator</h3>
+			<a href="#observabletranslator" id="observabletranslator" style="color: inherit; text-decoration: none;">
+				<h2>ObservableTranslator</h2>
 			</a>
-			<p>The translator instance provides various methods to handle all your translation needs.</p>
-			<pre><code class="language-ts"><span class="hljs-keyword">import</span> { createTranslator } <span class="hljs-keyword">from</span> <span class="hljs-string">"@bytesoftio/use-translator"</span>
+			<p>A quick tour of the available methods:</p>
+			<pre><code class="language-ts"><span class="hljs-keyword">import</span> { createTranslator } <span class="hljs-keyword">from</span> <span class="hljs-string">"@bytesoftio/translator"</span>
 
 <span class="hljs-keyword">const</span> translator = createTranslator({ en: { title: <span class="hljs-string">"Foo"</span>, about: <span class="hljs-string">"https://$1"</span>, nested: { text: <span class="hljs-string">"Bar"</span> } }}, <span class="hljs-string">"en"</span>)
 
@@ -2515,69 +2486,11 @@ translator.has(<span class="hljs-string">"foo"</span>, <span class="hljs-string"
 <span class="hljs-comment">// listen to language, translations or fallbackLanguage changes</span>
 translator.listen(<span class="hljs-function"><span class="hljs-params">translator</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(translator.getLanguage()))
 
-<span class="hljs-comment">// use translator like a hook, when used inside a react component,</span>
-<span class="hljs-comment">// the component will become aware of language and translations changes,</span>
-<span class="hljs-comment">// take a look at the "useTranslator" hook</span>
-<span class="hljs-keyword">const</span> translate = translator.use()
-
-<span class="hljs-comment">// use translate function the same as "translator.translate()" method, returns "https://github.com"</span>
-translate(<span class="hljs-string">"about"</span>, [<span class="hljs-string">"github.com"</span>], <span class="hljs-string">"en"</span>)
-
 <span class="hljs-comment">// create a nested translate function, all translation keys be prefixed with the given scope "nested"</span>
-<span class="hljs-keyword">const</span> scopedTranslate = translator.use(<span class="hljs-string">"nested"</span>)
+<span class="hljs-keyword">const</span> scopedTranslate = translator.scope(<span class="hljs-string">"nested"</span>)
 
 <span class="hljs-comment">// same as translator.get("nested.text")</span>
-scopedTranslate(<span class="hljs-string">"text"</span>)
-
-<span class="hljs-comment">// use translator like a hook, when called inside a React component,</span>
-<span class="hljs-comment">// the component will become aware of language changes, take a look at the "useLanguage" hook</span>
-<span class="hljs-keyword">const</span> [language, setLanguage] = translator.useLanguage()</code></pre>
-			<a href="#usetranslator" id="usetranslator" style="color: inherit; text-decoration: none;">
-				<h3>useTranslator</h3>
-			</a>
-			<p>Use translations inside your React components.</p>
-			<pre><code class="language-tsx">import React from &quot;react&quot;
-import { createTranslator, useTranslator } from &quot;@bytesoftio/use-translator&quot;
-
-const translator = createTranslator({ en: { title: &quot;Foo&quot;, nested: { title: &quot;Bar&quot; } } }, &quot;en&quot;)
-
-const Component = () =&gt; {
-  // connect component to language and translation changes
-  const t = useTranslator(translator)
-  // create a scoped translate function, all translation keys will be prefixed with &quot;nested&quot;
-  const tt = useTranslator(translator, &quot;nested&quot;)
-
-  return (
-    &lt;div&gt;
-      &lt;h1&gt;Title: {t(&quot;title&quot;)}&lt;/h1&gt;
-      &lt;h2&gt;Nested title: {tt(&quot;title&quot;)}, same as: {t(&quot;nested.title&quot;)}&lt;/h2&gt;
-    &lt;/div&gt;
-  )
-}</code></pre>
-			<a href="#uselanguage" id="uselanguage" style="color: inherit; text-decoration: none;">
-				<h3>useLanguage</h3>
-			</a>
-			<p>Use and control current language inside your React components.</p>
-			<pre><code class="language-tsx">import React from &quot;react&quot;
-import { createTranslator, useLanguage, useTranslator } from &quot;@bytesoftio/use-translator&quot;
-
-const translator = createTranslator({ en: { title: &quot;Foo&quot; }, de: { title: &quot;Bar&quot; } }, &quot;en&quot;)
-
-const Component = () =&gt; {
-  // get current language and a way to change it
-  const [langauge, setLanguage] = useLanguage(translator)
-  // connect translator to component
-  const t = useTranslator(translator)
-
-  const changeLanguage = () =&gt; setLanguage(&quot;de&quot;)
-
-  return (
-    &lt;div&gt;
-      &lt;h1&gt;Title: {t(&quot;title&quot;)}&lt;/h1&gt;
-      &lt;button onClick={changeLanguage}&gt;Change language&lt;/button&gt;
-    &lt;/div&gt;
-  )
-}</code></pre>
+scopedTranslate(<span class="hljs-string">"text"</span>)</code></pre>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
@@ -2593,21 +2506,16 @@ const Component = () =&gt; {
 					<section class="tsd-index-section ">
 						<h3>Interfaces</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-interface"><a href="interfaces/hooktranslator.html" class="tsd-kind-icon">Hook<wbr>Translator</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/observabletranslator.html" class="tsd-kind-icon">Observable<wbr>Translator</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-type-alias"><a href="globals.html#createtranslator" class="tsd-kind-icon">Create<wbr>Translator</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#languagespread" class="tsd-kind-icon">Language<wbr>Spread</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#languageupdater" class="tsd-kind-icon">Language<wbr>Updater</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#translatefunction" class="tsd-kind-icon">Translate<wbr>Function</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#translations" class="tsd-kind-icon">Translations</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#translatorcallback" class="tsd-kind-icon">Translator<wbr>Callback</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#translatorspread" class="tsd-kind-icon">Translator<wbr>Spread</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#uselanguage" class="tsd-kind-icon">Use<wbr>Language</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#usetranslator" class="tsd-kind-icon">Use<wbr>Translator</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
@@ -2616,8 +2524,6 @@ const Component = () =&gt; {
 							<li class="tsd-kind-function"><a href="globals.html#createtranslator" class="tsd-kind-icon">create<wbr>Translator</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#templatize" class="tsd-kind-icon">templatize</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#translate" class="tsd-kind-icon">translate</a></li>
-							<li class="tsd-kind-function"><a href="globals.html#uselanguage" class="tsd-kind-icon">use<wbr>Language</a></li>
-							<li class="tsd-kind-function"><a href="globals.html#usetranslator" class="tsd-kind-icon">use<wbr>Translator</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2628,10 +2534,10 @@ const Component = () =&gt; {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="createtranslator" class="tsd-anchor"></a>
 				<h3>Create<wbr>Translator</h3>
-				<div class="tsd-signature tsd-kind-icon">Create<wbr>Translator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>translations<span class="tsd-signature-symbol">: </span><a href="globals.html#translations" class="tsd-signature-type">Translations</a>, language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fallbackLanguage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a></div>
+				<div class="tsd-signature tsd-kind-icon">Create<wbr>Translator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>translations<span class="tsd-signature-symbol">: </span><a href="globals.html#translations" class="tsd-signature-type">Translations</a>, language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fallbackLanguage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/observabletranslator.html" class="tsd-signature-type">ObservableTranslator</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in src/types.ts:31</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/types.ts#L27">types.ts:27</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2639,7 +2545,7 @@ const Component = () =&gt; {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>translations<span class="tsd-signature-symbol">: </span><a href="globals.html#translations" class="tsd-signature-type">Translations</a>, language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fallbackLanguage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>translations<span class="tsd-signature-symbol">: </span><a href="globals.html#translations" class="tsd-signature-type">Translations</a>, language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fallbackLanguage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/observabletranslator.html" class="tsd-signature-type">ObservableTranslator</a></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
@@ -2655,48 +2561,7 @@ const Component = () =&gt; {
 											<h5><span class="tsd-flag ts-flagOptional">Optional</span> fallbackLanguage: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="languagespread" class="tsd-anchor"></a>
-				<h3>Language<wbr>Spread</h3>
-				<div class="tsd-signature tsd-kind-icon">Language<wbr>Spread<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="globals.html#languageupdater" class="tsd-signature-type">LanguageUpdater</a><span class="tsd-signature-symbol">]</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in src/types.ts:29</li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="languageupdater" class="tsd-anchor"></a>
-				<h3>Language<wbr>Updater</h3>
-				<div class="tsd-signature tsd-kind-icon">Language<wbr>Updater<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in src/types.ts:28</li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>language: <span class="tsd-signature-type">string</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									<h4 class="tsd-returns-title">Returns <a href="interfaces/observabletranslator.html" class="tsd-signature-type">ObservableTranslator</a></h4>
 								</li>
 							</ul>
 						</li>
@@ -2709,7 +2574,7 @@ const Component = () =&gt; {
 				<div class="tsd-signature tsd-kind-icon">Translate<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, replacements<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, language<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in src/types.ts:26</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/types.ts#L25">types.ts:25</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2746,7 +2611,7 @@ const Component = () =&gt; {
 				<div class="tsd-signature tsd-kind-icon">Translations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in src/types.ts:25</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/types.ts#L24">types.ts:24</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2761,10 +2626,10 @@ const Component = () =&gt; {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="translatorcallback" class="tsd-anchor"></a>
 				<h3>Translator<wbr>Callback</h3>
-				<div class="tsd-signature tsd-kind-icon">Translator<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>translator<span class="tsd-signature-symbol">: </span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+				<div class="tsd-signature tsd-kind-icon">Translator<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>translator<span class="tsd-signature-symbol">: </span><a href="interfaces/observabletranslator.html" class="tsd-signature-type">ObservableTranslator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in src/types.ts:30</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/types.ts#L26">types.ts:26</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2772,92 +2637,17 @@ const Component = () =&gt; {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>translator<span class="tsd-signature-symbol">: </span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>translator<span class="tsd-signature-symbol">: </span><a href="interfaces/observabletranslator.html" class="tsd-signature-type">ObservableTranslator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>translator: <a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a></h5>
+											<h5>translator: <a href="interfaces/observabletranslator.html" class="tsd-signature-type">ObservableTranslator</a></h5>
 										</li>
 									</ul>
 									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="translatorspread" class="tsd-anchor"></a>
-				<h3>Translator<wbr>Spread</h3>
-				<div class="tsd-signature tsd-kind-icon">Translator<wbr>Spread<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="globals.html#translatefunction" class="tsd-signature-type">TranslateFunction</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="globals.html#languageupdater" class="tsd-signature-type">LanguageUpdater</a><span class="tsd-signature-symbol">]</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in src/types.ts:27</li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="uselanguage" class="tsd-anchor"></a>
-				<h3>Use<wbr>Language</h3>
-				<div class="tsd-signature tsd-kind-icon">Use<wbr>Language<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>initializer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#languagespread" class="tsd-signature-type">LanguageSpread</a></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in src/types.ts:33</li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>initializer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#languagespread" class="tsd-signature-type">LanguageSpread</a></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>initializer: <span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol">&gt;</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="globals.html#languagespread" class="tsd-signature-type">LanguageSpread</a></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="usetranslator" class="tsd-anchor"></a>
-				<h3>Use<wbr>Translator</h3>
-				<div class="tsd-signature tsd-kind-icon">Use<wbr>Translator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>initializer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol">&gt;</span>, scope<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#translatefunction" class="tsd-signature-type">TranslateFunction</a></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in src/types.ts:32</li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>initializer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol">&gt;</span>, scope<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#translatefunction" class="tsd-signature-type">TranslateFunction</a></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>initializer: <span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol">&gt;</span></h5>
-										</li>
-										<li>
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> scope: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="globals.html#translatefunction" class="tsd-signature-type">TranslateFunction</a></h4>
 								</li>
 							</ul>
 						</li>
@@ -2877,7 +2667,7 @@ const Component = () =&gt; {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/createTranslator.ts:4</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/createTranslator.ts#L4">createTranslator.ts:4</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2911,7 +2701,7 @@ const Component = () =&gt; {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/templatize.ts:3</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/templatize.ts#L3">templatize.ts:3</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2937,7 +2727,7 @@ const Component = () =&gt; {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in src/translate.ts:5</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/translator/blob/a6c5fe1/src/translate.ts#L5">translate.ts:5</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2959,79 +2749,6 @@ const Component = () =&gt; {
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="uselanguage" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Language</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">use<wbr>Language<span class="tsd-signature-symbol">(</span>initializer<span class="tsd-signature-symbol">: </span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in src/useLanguage.ts:5</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>initializer: <a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>language<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="usetranslator" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Translator</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">use<wbr>Translator<span class="tsd-signature-symbol">(</span>initializer<span class="tsd-signature-symbol">: </span><a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span>, scope<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, replacements<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, language<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in src/useTranslator.ts:5</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>initializer: <a href="interfaces/hooktranslator.html" class="tsd-signature-type">HookTranslator</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> scope: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, replacements<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, language<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, replacements<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, language<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>key: <span class="tsd-signature-type">string</span></h5>
-											</li>
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> replacements: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-											</li>
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> language: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
 					</li>
 				</ul>
 			</section>
