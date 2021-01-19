@@ -50,6 +50,7 @@ describe("Translator", () => {
     expect(translator.has("boo")).toBe(false)
     expect(translator.has("foo", "de")).toBe(false)
     expect(translator.has("boo", "de")).toBe(true)
+    expect(translator.has("foo", "de", "en")).toBe(true)
   })
 
   it("returns placeholder if translation is missing", () => {
@@ -59,9 +60,12 @@ describe("Translator", () => {
   })
 
   it("uses fallback language", () => {
-    const translator = new Translator({ en: { boo: "bar" }, de: { foo: "bar" } }, "en", "de")
+    const translator = new Translator({ en: { foo: "baz" }, de: { foo: "bar" } }, "ru", "de")
 
     expect(translator.get("foo")).toBe("bar")
+    expect(translator.get("foo", [], "xx")).toBe("bar")
+    expect(translator.get("foo", [], "xx", "en")).toBe("baz")
+    expect(translator.get("foo", [], undefined, "en")).toBe("baz")
   })
 
   it("gets and set translations", () => {

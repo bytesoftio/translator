@@ -3,16 +3,14 @@ import { get, isString } from "lodash"
 import { Translations } from "./types"
 
 export const translate = (locales: Translations, language: string, key: string, replacements: any[] = [], fallbackLanguage?: string) => {
-  if (language in locales) {
-    let translation = get(locales[language], key)
+  let translation = get(locales[language], key)
 
-    if (translation === undefined && fallbackLanguage !== undefined) {
-      translation = get(locales[fallbackLanguage], key)
-    }
+  if (translation === undefined && fallbackLanguage !== undefined) {
+    translation = get(locales[fallbackLanguage], key)
+  }
 
-    if (isString(translation)) {
-      return templatize(translation, replacements)
-    }
+  if (isString(translation)) {
+    return templatize(translation, replacements)
   }
 
   return `{ ${language}.${key} }`

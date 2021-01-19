@@ -63,12 +63,24 @@ export class Translator implements ObservableTranslator {
     this.fallbackLanguage.set(language)
   }
 
-  get(key: string, replacements?: any[], language: string = this.getLanguage()): string {
-    return translate(this.translations.get(), language, key, replacements, this.fallbackLanguage.get())
+  get(key: string, replacements?: any[], language?: string, fallbackLanguage?: string): string {
+    language = language ?? this.getLanguage()
+    fallbackLanguage = fallbackLanguage ?? this.getFallbackLanguage()
+
+    return translate(
+      this.translations.get(),
+      language,
+      key,
+      replacements,
+      fallbackLanguage
+    )
   }
 
-  has(key: string, language: string = this.getLanguage()): boolean {
-    const translation =  this.get(key, [], language)
+  has(key: string, language?: string, fallbackLanguage?: string): boolean {
+    language = language ?? this.getLanguage()
+    fallbackLanguage = fallbackLanguage ?? this.getFallbackLanguage()
+
+    const translation = this.get(key, [], language, fallbackLanguage)
 
     return translation !== `{ ${language}.${key} }`
   }
